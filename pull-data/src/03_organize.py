@@ -18,6 +18,7 @@ def create_column_mapping():
         'surface': 'court_surface',
         'draw_size': 'tournament_draw_size',
         'tourney_level': 'tournament_level',
+        'tourney_points': 'tournament_points',
         'tourney_date': 'tournament_date',
         'match_num': 'match_number',
         'score': 'final_score',

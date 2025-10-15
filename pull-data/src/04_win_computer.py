@@ -51,7 +51,7 @@ def compute_yearly_stats(df):
         winner_pct_before = (winner_wins_before / winner_total_before * 100) if winner_total_before > 0 else 0.0
         loser_pct_before = (loser_wins_before / loser_total_before * 100) if loser_total_before > 0 else 0.0
         
-        # Store the stats for this match
+        # Store the stats for this match, stats that year
         winner_wins_ytd.append(winner_wins_before)
         winner_losses_ytd.append(winner_losses_before)
         winner_win_pct_ytd.append(round(winner_pct_before, 2))

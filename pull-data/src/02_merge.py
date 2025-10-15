@@ -29,6 +29,69 @@ def parse_date(date_str):
     except (ValueError, TypeError):
         return None
 
+def convert_tourney_level_to_points(df):
+    """
+    Convert tournament level codes to ATP ranking points awarded to the winner.
+    
+    ATP Point System:
+    - G (Grand Slam): 2000 points
+    - M (Masters 1000): 1000 points
+    - F (ATP Finals): 1500 points
+    - A (ATP 500): 500 points (larger draw: 48-56 players)
+    - A (ATP 250): 250 points (smaller draw: 28-32 players)
+    - D (Davis Cup): 0 points (team event, no individual ranking points)
+    
+    ATP 500 tournaments typically have draw sizes of 48 or 56.
+    ATP 250 tournaments typically have draw sizes of 28 or 32.
+    """
+    
+    # Known ATP 500 tournament names (as of 2011-2024)
+    atp_500_tournaments = {
+        'Barcelona', "Queen's Club", 'Hamburg', 'Washington', 'Winston-Salem',
+        'Dubai', 'Rotterdam', 'Acapulco', 'Memphis', 'Rio de Janeiro',
+        'Barcelona', 'Halle', 'London', 'Beijing', 'Tokyo', 'Basel',
+        'Vienna', 'Barcelona Open', 'Aegon Championships', 'Fever-Tree Championships',
+        'Citi Open', 'China Open', 'Rakuten Japan Open', 'Swiss Indoors Basel',
+        'Erste Bank Open', 'ABN AMRO World Tennis Tournament'
+    }
+    
+    def get_points(row):
+        level = row['tourney_level']
+        draw_size = row.get('draw_size', 0)
+        tourney_name = row.get('tourney_name', '')
+        
+        # Grand Slam
+        if level == 'G':
+            return 2000
+        # Masters 1000
+        elif level == 'M':
+            return 1000
+        # ATP Finals
+        elif level == 'F':
+            return 1500
+        # Davis Cup (no ranking points)
+        elif level == 'D':
+            return 0
+        # ATP 250/500 - distinguish by draw size or tournament name
+        elif level == 'A':
+            # Check if it's a known ATP 500 tournament
+            if any(atp_500 in str(tourney_name) for atp_500 in atp_500_tournaments):
+                return 500
+            # Otherwise use draw size heuristic
+            # ATP 500 tournaments typically have 48 or 56 players
+            # ATP 250 tournaments typically have 28 or 32 players
+            elif draw_size >= 48:
+                return 500
+            else:
+                return 250
+        else:
+            # Unknown level, return 0
+            return 0
+    
+    df['tourney_points'] = df.apply(get_points, axis=1)
+    
+    return df
+
 def add_date_features(df):
     """Add year, month and month_name columns based on tourney_date."""
     # Parse the tournament date
@@ -89,10 +152,20 @@ def merge_atp_matches():
     print("Adding date features and organizing by year/month...")
     combined_df = add_date_features(combined_df)
     
+    # Convert tournament levels to points
+    print("Converting tournament levels to ATP ranking points...")
+    combined_df = convert_tourney_level_to_points(combined_df)
+    
+    # Show tournament points distribution
+    print("\nTournament points distribution:")
+    points_dist = combined_df.groupby('tourney_points').size().sort_index(ascending=False)
+    for points, count in points_dist.items():
+        print(f"  {points:4d} points: {count:,} matches")
+    
     # Remove rows with invalid dates
     initial_count = len(combined_df)
     combined_df = combined_df.dropna(subset=['parsed_date'])
-    print(f"Removed {initial_count - len(combined_df):,} matches with invalid dates")
+    print(f"\nRemoved {initial_count - len(combined_df):,} matches with invalid dates")
     
     # Sort by date (year, month, then original date)
     print("Sorting matches chronologically...")
