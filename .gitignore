@@ -1,0 +1,15 @@
+# Entorno virtual
+.venv/
+
+# Checkpoints de Jupyter
+*.ipynb_checkpoints/
+
+# Archivos de datos procesados
+notebooks/data/clean/*.parquet
+data/raw/
+data/processed/
+models/
+
+# Archivos compilados de Python
+*.pyc
+__pycache__/
