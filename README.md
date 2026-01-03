@@ -1,7 +1,6 @@
 # 🎾 Tennis Match Prediction - Machine Learning Project
 
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 > **Predicción de Ganadores en Partidos de Tenis ATP usando Machine Learning Avanzado**
 
@@ -312,43 +311,6 @@ Validar el modelo en condiciones **real-world** contra el predictor oficial de I
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
-
-### 📚 Librerías Principales
-
-```python
-# Data Processing
-pandas==2.2.0
-numpy==1.26.3
-pyarrow==15.0.0  # Para .parquet
-
-# Machine Learning
-scikit-learn==1.4.0
-xgboost==2.0.3
-torch==2.1.2  # Neural Networks
-
-# Hyperparameter Optimization
-optuna==3.5.0
-
-# Visualization
-matplotlib==3.8.2
-seaborn==0.13.1
-yellowbrick==1.5
-
-# Notebooks
-jupyter==1.0.0
-ipykernel==6.28.0
-```
-
-### 🔧 Herramientas de Desarrollo
-
-- **VS Code** + Jupyter Extension
-- **Git** para control de versiones
-- **Conda** para gestión de entornos
-- **Bash scripting** para automatización
-
----
-
 ## 📈 Métricas de Rendimiento
 
 ### ⏱️ Tiempos de Ejecución (HP Omen 16)
@@ -376,36 +338,7 @@ ipykernel==6.28.0
 - **Total proyecto**: ~300 MB
 
 ---
-
-## 🧠 Conceptos Clave Aprendidos
-
-### 🎓 Machine Learning
-
-- ✅ **Time Series Cross-Validation**: Evitar data leakage temporal
-- ✅ **Feature Engineering avanzado**: ELO, Bayesian smoothing, H2H
-- ✅ **Hyperparameter Optimization**: Optuna vs GridSearch vs RandomSearch
-- ✅ **Ensemble Methods**: Voting, Stacking, Blending
-- ✅ **Model Selection**: CV Score vs Test Score trade-off
-
-### 📊 Data Science
-
-- ✅ **Data Cleaning**: Tratamiento de missing values, outliers, inconsistencias
-- ✅ **Imputación inteligente**: Basada en contexto (rookies vs veterans)
-- ✅ **Feature Scaling**: StandardScaler para modelos basados en distancia
-- ✅ **Encoding**: OneHotEncoder para categóricas
-
-### 💻 Software Engineering
-
-- ✅ **Reproducibilidad**: Seeds fijos, entornos virtuales, requirements.txt
-- ✅ **Modularización**: Pipelines reutilizables con scikit-learn
-- ✅ **Versionado**: Git para tracking de cambios
-- ✅ **Documentación**: Markdown, docstrings, comentarios técnicos
-
----
-
-## 🚧 Limitaciones y Trabajo Futuro
-
-### ⚠️ Limitaciones Actuales
+## ⚠️ Limitaciones Actuales
 
 1. **Sesgo temporal**: Modelo entrenado pre-2024, no captura nuevos jugadores post-2024
 2. **Missing features**: No incluye datos de lesiones médicas oficiales
@@ -413,15 +346,6 @@ ipykernel==6.28.0
 4. **Weather conditions**: No disponibles en el dataset de Sackmann
 5. **Mental factors**: Presión, rivalidad, historia personal no cuantificables
 
-### 🔮 Mejoras Futuras
-
-- [ ] **Scraping en tiempo real**: Integrar odds de apuestas como feature
-- [ ] **Análisis de sentimiento**: Twitter/prensa para detectar estado anímico
-- [ ] **Computer vision**: Analizar videos de partidos para detectar patrones tácticos
-- [ ] **Transfer learning**: Pre-entrenar en WTA (femenino) y fine-tune en ATP
-- [ ] **Explicabilidad**: SHAP values para interpretar predicciones individuales
-- [ ] **Deployment**: API REST para predicciones en tiempo real
-- [ ] **A/B Testing**: Comparar modelo actual vs variantes en torneos futuros
 
 ---
 
@@ -433,13 +357,6 @@ ipykernel==6.28.0
   GitHub: [JeffSackmann/tennis_atp](https://github.com/JeffSackmann/tennis_atp)  
   License: CC BY-NC-SA 4.0
 
-### 📖 Papers y Recursos
-
-- [ELO Rating System - Arpad Elo (1978)](https://en.wikipedia.org/wiki/Elo_rating_system)
-- [XGBoost: A Scalable Tree Boosting System - Chen & Guestrin (2016)](https://arxiv.org/abs/1603.02754)
-- [Optuna: A Next-generation Hyperparameter Optimization Framework - Akiba et al. (2019)](https://arxiv.org/abs/1907.10902)
-- [Time Series Cross-Validation - Hyndman & Athanasopoulos](https://otexts.com/fpp3/)
-
 ### 🏆 Benchmarks
 
 - **IBM Watson Tennis**: Predictor oficial de Grand Slams
@@ -448,30 +365,13 @@ ipykernel==6.28.0
 
 ---
 
-## 🤝 Contribuciones
-
-Este es un proyecto académico cerrado (Q1 2025-26), pero agradecemos feedback:
-
-- 🐛 **Bug reports**: Abre un issue en GitHub
-- 💡 **Sugerencias**: Envía un pull request con mejoras
-- 📧 **Contacto**: [Añadir emails si procede]
-
----
 
 ## 📄 Licencia
-
-Este proyecto es de código abierto bajo licencia **MIT**.
 
 Los datos originales de Jeff Sackmann están bajo licencia **CC BY-NC-SA 4.0**.
 
 ---
 
-## 🙏 Agradecimientos
-
-- **Jeff Sackmann** por mantener el repositorio `tennis_atp`
-- **Profesores de APA (UPC)** por guiar el proyecto
-- **Comunidad de Kaggle** por inspiración en feature engineering
-- **IBM Watson** por establecer un benchmark profesional
 
 ---
 
@@ -495,4 +395,3 @@ Los datos originales de Jeff Sackmann están bajo licencia **CC BY-NC-SA 4.0**.
 ---
 
 **Última actualización:** Enero 2026  
-**Versión:** 1.0.0
