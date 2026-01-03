@@ -337,15 +337,6 @@ Validar el modelo en condiciones **real-world** contra el predictor oficial de I
 - **Notebooks ejecutados**: ~50 MB (con outputs)
 - **Total proyecto**: ~300 MB
 
----
-## ⚠️ Limitaciones Actuales
-
-1. **Sesgo temporal**: Modelo entrenado pre-2024, no captura nuevos jugadores post-2024
-2. **Missing features**: No incluye datos de lesiones médicas oficiales
-3. **Surface transitions**: No modela específicamente cambios de superficie
-4. **Weather conditions**: No disponibles en el dataset de Sackmann
-5. **Mental factors**: Presión, rivalidad, historia personal no cuantificables
-
 
 ---
 
@@ -362,35 +353,6 @@ Validar el modelo en condiciones **real-world** contra el predictor oficial de I
 - **IBM Watson Tennis**: Predictor oficial de Grand Slams
   - [IBM Sports & Entertainment](https://www.ibm.com/sports)
   - Accuracy reportado: ~70% en Grand Slams
-
----
-
-
-## 📄 Licencia
-
-Los datos originales de Jeff Sackmann están bajo licencia **CC BY-NC-SA 4.0**.
-
----
-
-
----
-
-## 📞 Contacto
-
-**Autores:** Oriol Farrés & Marc Gil  
-**Universidad:** Universitat Politècnica de Catalunya (UPC)  
-**Curso:** Aprendizaje Automático (APA) - Q1 2025-26  
-**GitHub:** [Sterrysx/Tennis-ML-APA](https://github.com/Sterrysx/Tennis-ML-APA)
-
----
-
-<div align="center">
-
-**¿Te ha gustado el proyecto? ⭐ Dale una estrella en GitHub!**
-
-[![GitHub stars](https://img.shields.io/github/stars/Sterrysx/Tennis-ML-APA.svg?style=social&label=Star)](https://github.com/Sterrysx/Tennis-ML-APA)
-
-</div>
 
 ---
 
